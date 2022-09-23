@@ -1,0 +1,6 @@
+crear un proyecto maven
+crear otro de spring
+colocar el proyecto de spring dentro del de maven
+luego en el pom de maven agregar con la etiqueda <module> el nombre del proyecto
+agregar la etiqueta <parent> en el pom del proyecto de maven
+En proyecto de spring(modulue) decimos con la etiqueta <parent> que el proyecto de maven sera el padre

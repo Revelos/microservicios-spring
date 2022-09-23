@@ -19,9 +19,9 @@ public class UsuarioController {
     private UsuarioService service;
 
     @GetMapping
-    public ResponseEntity<?> listar(){
+    public Map<String,List<Usuario>> listar(){
         List<Usuario> usuarioList = service.listar();
-        return ResponseEntity.status(HttpStatus.OK).body(usuarioList);
+        return Collections.singletonMap("usuarios",service.listar());
     }
 
     @GetMapping("/{id}")

@@ -1,0 +1,31 @@
+1) Ubicarte en la carpeta del proyecto y ejecutar el comando .\mvnw.cmd clean package [-DskipTests], que nos generara el nuevo jar que
+utilizaremos para el contenedor
+2)Creas el archivo Dockerfile y le agregas el jdk y tambien el jar generado en target
+3) En properties cambias la conexion a la base en ves de localhost -> host.docker.internal
+
+
+
+host.docker.internal colocalo en vez de localhost 
+
+
+COMANDOS DOCKER 
+docker ps  (listado de contenedores corriendo)
+docker images (lista las imagenes disponibles)
+docker build . (construye la image)
+
+
+docker build -t msvc-usuario . -f .\msvc-usuario\Dockerfile
+
+docker run -p 8001:8001 02edf6a8fc51  
+
+docker container prune  (Se eliminan todos los contenedores)
+
+docker network create spring (Creamos una nueva red llamada spring)
+
+docker run -p 8001:8001 -d --rm --name msvc-usuarios --network spring msvc-usuario <-- [nombre de la imagen]
+
+docker run -p 8002:8002 -d --rm --name msvc-cursos <--[nombre de la subred] --network spring <--[nombre de la red] msvc-cursos
+
+docker run -d -p 3307:3306 --name mysql8.0.30 --network spring -e MYSQL_ROOT_PASSWORD=pass123 -e MYSQL_DATABASE=msvc_usuarios mysql:8.0.30
+
+docker run -p 5433:5432 --name postgres --network spring  -e POSTGRES_PASSWORD=admin -e POSTGRES_DB=msvc-cursos  postgres 

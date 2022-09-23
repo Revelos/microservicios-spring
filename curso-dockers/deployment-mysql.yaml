@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mysql8new
+  name: mysql8new
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql8new
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mysql8new
+    spec:
+      containers:
+      - image: mysql:8
+        name: mysql
+        ports:
+        - containerPort: 3306
+        resources: {}
+status: {}
