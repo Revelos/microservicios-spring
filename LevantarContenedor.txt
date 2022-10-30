@@ -29,3 +29,7 @@ docker run -p 8002:8002 -d --rm --name msvc-cursos <--[nombre de la subred] --ne
 docker run -d -p 3307:3306 --name mysql8.0.30 --network spring -e MYSQL_ROOT_PASSWORD=pass123 -e MYSQL_DATABASE=msvc_usuarios mysql:8.0.30
 
 docker run -p 5433:5432 --name postgres --network spring  -e POSTGRES_PASSWORD=admin -e POSTGRES_DB=msvc-cursos  postgres 
+
+docker run -d -p 3307:3306 --name mysql8 --network spring -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=msvc_usuarios -v data-mysql:/var/lib/mysql --restart=always  mysql:8.0.30
+
+docker run -p 5433:5432 --name postgres --network spring  -e POSTGRES_PASSWORD=admin -e POSTGRES_DB=msvc_cursos -v data-postgres:/var/lib/postgresql/data --restart=always  postgres
